@@ -1,0 +1,11 @@
+Package: GEOpipeline
+Type: Package
+Title: GEOpipeline: Streamlined Pipeline for Automatically CDF Normalizing Microarray Datasets
+Version: 0.1.0
+Author: Anjan Bharadwaj
+Maintainer: Anjan Bharadwaj <anjanbharadwaj02@gmail.com>
+Description: Provides a pipeline for downloading standardly-normalized microarray data, rather than using either the default normalization scheme in the GEO entry or the raw microarray data. To use the package, a user must simply enter the GEO accession number of their dataset, and the output directory for files to be downloaded in. The package automatically downloads the data from online, finds the appropriate CDF (chip-definition format file) from the BrainArray repository, normalizes the microarray data by the CDF standard, and packages together the gene expression table and phenotypic data into one RDS file.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports: BiocManager, devtools, AnnotationDbi, GEOmetadb, GEOquery, affy, annotate, data.table, org.Hs.eg.db, stringr

@@ -1,0 +1,9 @@
+{
+    "path" : "~/GEOpipeline",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

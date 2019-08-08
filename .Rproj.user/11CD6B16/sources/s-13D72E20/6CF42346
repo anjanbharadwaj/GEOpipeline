@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565292103639.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "6CF42346",
+    "lastKnownWriteTime" : 1565295631,
+    "last_content_update" : 1565295631,
+    "path" : "~/GEOPipeline/man/fetchData.Rd",
+    "project_path" : "man/fetchData.Rd",
+    "properties" : {
+        "cursorPosition" : "7,13",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_doc"
+}

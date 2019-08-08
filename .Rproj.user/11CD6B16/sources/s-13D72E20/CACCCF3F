@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565291986052.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "45|58|72|0|\n139|64|175|0|\n",
+    "hash" : "0",
+    "id" : "CACCCF3F",
+    "lastKnownWriteTime" : 1565294856,
+    "last_content_update" : 1565294856098,
+    "path" : "~/GEOPipeline/R/collectDatasets.R",
+    "project_path" : "R/collectDatasets.R",
+    "properties" : {
+        "cursorPosition" : "130,62",
+        "scrollLine" : "130"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
