@@ -4,31 +4,31 @@ fetchData <- function(accession, output_dir){
   if (!requireNamespace("BiocManager", quietly = TRUE))
     suppressWarnings(install.packages("BiocManager"))
 
-  if (!requireNamespace("GEOquery")) suppressWarnings(BiocManager::install("GEOquery"))
+  if (!require("GEOquery")) suppressWarnings(BiocManager::install("GEOquery"))
   suppressWarnings(requireNamespace("GEOquery"))
 
-  if (!requireNamespace("GEOmetadb")) suppressWarnings(BiocManager::install("GEOmetadb"))
+  if (!require("GEOmetadb")) suppressWarnings(BiocManager::install("GEOmetadb"))
   suppressWarnings(requireNamespace("GEOmetadb"))
 
-  if (!requireNamespace("data.table")) suppressWarnings(install.packages("data.table"))
+  if (!require("data.table")) suppressWarnings(install.packages("data.table"))
   suppressWarnings(requireNamespace("data.table"))
 
-  if (!requireNamespace("AnnotationDbi")) suppressWarnings(BiocManager::install("AnnotationDbi"))
+  if (!require("AnnotationDbi")) suppressWarnings(BiocManager::install("AnnotationDbi"))
   suppressWarnings(requireNamespace("AnnotationDbi"))
 
-  if (!requireNamespace("stringr")) suppressWarnings(install.packages("stringr"))
+  if (!require("stringr")) suppressWarnings(install.packages("stringr"))
   suppressWarnings(requireNamespace("stringr"))
 
-  if(!requireNamespace("affy")){
+  if(!require("affy")){
     suppressWarnings(BiocManager::install("affy"))
   }
   suppressWarnings(requireNamespace("affy"))
-  if(!requireNamespace("annotate")){
+  if(!require("annotate")){
     suppressWarnings(BiocManager::install("annotate"))
   }
   suppressWarnings(requireNamespace("annotate"))
 
-  if(!requireNamespace("org.Hs.eg.db")){
+  if(!require("org.Hs.eg.db")){
     suppressWarnings(BiocManager::install("org.Hs.eg.db"))
   }
   suppressWarnings(requireNamespace("org.Hs.eg.db"))
