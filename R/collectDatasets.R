@@ -1,3 +1,4 @@
+
 fetchData <- function(accession, output_dir){
   requireNamespace("BiocManager")
   requireNamespace("devtools")
