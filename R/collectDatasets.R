@@ -1,7 +1,17 @@
+#' @title Retrieve GEO Data
+#'
+#' @description The function will utilize the other helper functions in the package to download data from the online Gene Expression Omnibus, find the proper CDF file to use from the BrainArray website (alternatively, if it cannot be found online, the user will be prompted to enter the link to a CDF file of their choice), and normalize the data based on the CDF file. If the dataset from online is not in the .CEL format, the tool will not perform normalization.
+#'
+#' @param
+#'
+#' @return
+#'
+#' @examples
+#'
 #' @export
 fetchData <- function(accession, output_dir){
-  requireNamespace("BiocManager")
-  requireNamespace("devtools")
+  require("BiocManager")
+  require("devtools")
   if (!requireNamespace("BiocManager", quietly = TRUE))
     suppressWarnings(install.packages("BiocManager"))
   require(BiocManager)
