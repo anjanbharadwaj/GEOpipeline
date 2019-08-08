@@ -6,27 +6,27 @@ fetchData <- function(accession, output_dir){
     suppressWarnings(install.packages("BiocManager"))
   require(BiocManager)
   if (!require(GEOquery)) suppressWarnings(BiocManager::install("GEOquery"))
-  suppressWarnings(require(GEOquery))
+  suppressWarnings(library(GEOquery))
 
   if (!require(GEOmetadb)) suppressWarnings(BiocManager::install("GEOmetadb"))
-  suppressWarnings(require(GEOmetadb))
+  suppressWarnings(library(GEOmetadb))
 
   if (!require(data.table)) suppressWarnings(install.packages("data.table"))
-  suppressWarnings(require(data.table))
+  suppressWarnings(library(data.table))
 
   if (!require(AnnotationDbi)) suppressWarnings(BiocManager::install("AnnotationDbi"))
-  suppressWarnings(require(AnnotationDbi))
+  suppressWarnings(library(AnnotationDbi))
 
   if (!require(stringr)) suppressWarnings(install.packages("stringr"))
-  suppressWarnings(require(stringr))
+  suppressWarnings(library(stringr))
 
   if(!require(affy)) suppressWarnings(BiocManager::install("affy"))
-  suppressWarnings(require(affy))
+  suppressWarnings(library(affy))
   if(!require(annotate)) suppressWarnings(BiocManager::install("annotate"))
-  suppressWarnings(require(annotate))
+  suppressWarnings(library(annotate))
 
   if(!require(org.Hs.eg.db)) suppressWarnings(BiocManager::install("org.Hs.eg.db"))
-  suppressWarnings(require(org.Hs.eg.db))
+  suppressWarnings(library(org.Hs.eg.db))
 
   setwd(output_dir)
   gse <- suppressMessages(getGEO(paste("GSE",accession,sep=""), GSEMatrix = TRUE))
