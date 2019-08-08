@@ -4,34 +4,34 @@ fetchData <- function(accession, output_dir){
   if (!requireNamespace("BiocManager", quietly = TRUE))
     suppressWarnings(install.packages("BiocManager"))
 
-  if (!requireNamespace(GEOquery)) suppressWarnings(BiocManager::install("GEOquery"))
-  suppressWarnings(library(GEOquery))
+  if (!requireNamespace("GEOquery")) suppressWarnings(BiocManager::install("GEOquery"))
+  suppressWarnings(requireNamespace("GEOquery"))
 
-  if (!requireNamespace(GEOmetadb)) suppressWarnings(BiocManager::install("GEOmetadb"))
-  suppressWarnings(requireNamespace(GEOmetadb))
+  if (!requireNamespace("GEOmetadb")) suppressWarnings(BiocManager::install("GEOmetadb"))
+  suppressWarnings(requireNamespace("GEOmetadb"))
 
-  if (!requireNamespace(data.table)) suppressWarnings(install.packages("data.table"))
-  suppressWarnings(requireNamespace(data.table))
+  if (!requireNamespace("data.table")) suppressWarnings(install.packages("data.table"))
+  suppressWarnings(requireNamespace("data.table"))
 
-  if (!requireNamespace(AnnotationDbi)) suppressWarnings(BiocManager::install("AnnotationDbi"))
-  suppressWarnings(requireNamespace(AnnotationDbi))
+  if (!requireNamespace("AnnotationDbi")) suppressWarnings(BiocManager::install("AnnotationDbi"))
+  suppressWarnings(requireNamespace("AnnotationDbi"))
 
-  if (!requireNamespace(stringr)) suppressWarnings(install.packages("stringr"))
-  suppressWarnings(requireNamespace(stringr))
+  if (!requireNamespace("stringr")) suppressWarnings(install.packages("stringr"))
+  suppressWarnings(requireNamespace("stringr"))
 
-  if(!requireNamespace(affy)){
+  if(!requireNamespace("affy")){
     suppressWarnings(BiocManager::install("affy"))
   }
-  suppressWarnings(requireNamespace(affy))
-  if(!requireNamespace(annotate)){
+  suppressWarnings(requireNamespace("affy"))
+  if(!requireNamespace("annotate")){
     suppressWarnings(BiocManager::install("annotate"))
   }
-  suppressWarnings(requireNamespace(annotate))
+  suppressWarnings(requireNamespace("annotate"))
 
-  if(!requireNamespace(org.Hs.eg.db)){
+  if(!requireNamespace("org.Hs.eg.db")){
     suppressWarnings(BiocManager::install("org.Hs.eg.db"))
   }
-  suppressWarnings(requireNamespace(org.Hs.eg.db))
+  suppressWarnings(requireNamespace("org.Hs.eg.db"))
 
   setwd(output_dir)
   gse <- suppressMessages(getGEO(paste("GSE",accession,sep=""), GSEMatrix = TRUE))
@@ -131,7 +131,7 @@ map_platform_to_cdf <- function(data, platform, accession_id, platform_id){
     files <- getGEOSuppFiles(paste("GSE",accession_id,sep=""))
     wd <- paste(getwd(),"/GSE",accession_id,sep="")
     setwd(wd)
-    return(runCdfCode(data, files, wd,accession_id,cdf_library, platform_id))
+    return(runCdfCode(data, wd,accession_id,cdf_library, platform_id))
   }
   )
 }
