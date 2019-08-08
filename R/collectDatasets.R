@@ -5,7 +5,7 @@ fetchData <- function(accession, output_dir){
     suppressWarnings(install.packages("BiocManager"))
 
   if (!requireNamespace(GEOquery)) suppressWarnings(BiocManager::install("GEOquery"))
-  suppressWarnings(requireNamespace(GEOquery))
+  suppressWarnings(library(GEOquery))
 
   if (!requireNamespace(GEOmetadb)) suppressWarnings(BiocManager::install("GEOmetadb"))
   suppressWarnings(requireNamespace(GEOmetadb))
