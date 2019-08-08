@@ -9,4 +9,4 @@ License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports: BiocManager, devtools, AnnotationDbi, GEOmetadb, GEOquery, affy, annotate, data.table, org.Hs.eg.db, stringr
-Depends: BiocManager, devtools, AnnotationDbi, GEOmetadb, GEOquery, affy, annotate, data.table, org.Hs.eg.db, stringr
+Depends:
