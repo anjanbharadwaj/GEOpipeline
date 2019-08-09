@@ -8,5 +8,5 @@ Description: Provides a pipeline for downloading standardly-normalized microarra
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
-Depends: BiocManager, devtools, AnnotationDbi, GEOmetadb, GEOquery, affy, annotate, data.table, org.Hs.eg.db, stringr
+Depends: BiocManager, devtools, AnnotationDbi, GEOmetadb, GEOquery, affy, annotate, org.Hs.eg.db, stringr
 RoxygenNote: 6.1.1
