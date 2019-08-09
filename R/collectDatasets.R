@@ -52,7 +52,7 @@ map_accession_to_platform <- function(data, accession_id){
       }
       platform_id <- strsplit(platform_id, "\n")[[1]]
     }
-
+    require(data.table)
     table <- fread("https://gist.githubusercontent.com/seandavi/bc6b1b82dc65c47510c7/raw/b2027d7938896dce6145a1ebbcea75826813f6e1/platformMap.txt")
     if(platform_id[i] %in% table$gpl){
       platform <- table[which(table$gpl==platform_id[i]),bioc_package]
