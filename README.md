@@ -21,6 +21,7 @@ Pipeline for automatically processing Gene Expression Omnibus data by retrieving
   - Example: for https://www.ncbi.nlm.nih.gov/gds/?term=GSE11121, accession = "11121"
 - location = filepath of output directory
   - Example: "/Users/johndoe/Documents"
+- Example: GEOPipeline::fetchData("11121", "/Users/Name/Documents")
 
 #### Values
 
