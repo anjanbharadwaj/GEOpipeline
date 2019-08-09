@@ -51,7 +51,8 @@ Anjan Bharadwaj
 }
 \examples{
 
-##runCdfCode (data, "/Users/johndoe/Documents/GEODATA/##GSE11121","11121","hgu133ahsentrezgcdf", "GPL570")
+##runCdfCode (data, "/Users/johndoe/Documents/GEODATA/##GSE11121",
+##"11121","hgu133ahsentrezgcdf", "GPL570")
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

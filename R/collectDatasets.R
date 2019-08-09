@@ -49,9 +49,11 @@ map_accession_to_platform <- function(data, accession_id){
       }
       platform_id <- strsplit(platform_id, "\n")[[1]]
     }
-    table <- read.table("https://gist.githubusercontent.com/seandavi/bc6b1b82dc65c47510c7/raw/b2027d7938896dce6145a1ebbcea75826813f6e1/platformMap.txt", header=T)
-    if(platform_id[i] %in% table$gpl){
-      platform <- table[which(table$gpl==platform_id[i]),3]
+
+    table <- read.table("https://raw.githubusercontent.com/anjanbharadwaj/GPLtoBiocAnnotations/master/gplToBioc.txt",header = T, row.names = "gpl")  #  table2 <- read.table("https://gist.githubusercontent.com/seandavi/bc6b1b82dc65c47510c7/raw/b2027d7938896dce6145a1ebbcea75826813f6e1/platformMap.txt", header=T)
+
+    if(platform_id[i] %in% rownames(table)){
+      platform <- table[which(rownames(table)==platform_id[i]),2]
       message(paste("Platform used for",platform_id[i],":", platform))
     }
     else{

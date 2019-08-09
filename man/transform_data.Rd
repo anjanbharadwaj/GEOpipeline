@@ -51,7 +51,8 @@ Anjan Bharadwaj
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##transform_data ("hgu133ahsentrezgcdf", "11121", gse, "GPL570", ##c("GSM12890.CEL","GSM138290.CEL"))
+##transform_data ("hgu133ahsentrezgcdf", "11121",
+## gse, "GPL570", ##c("GSM12890.CEL","GSM138290.CEL"))
 
 
 }
