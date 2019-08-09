@@ -220,7 +220,7 @@ transform_data <- function(cdfname, accession, gse, platform_id, filenamesV1, ou
   ematrix <- ematrix[order(ematrix[,1]),] #sort by gene name
   ematrix <- rbind(cols, ematrix)
   dir.create(paste(output_dir,"/",accession,"_",platform_id,sep=""))
-  setwd(aste(output_dir,"/",accession,"_",platform_id,sep=""))
+  setwd(paste(output_dir,"/",accession,"_",platform_id,sep=""))
   write.table(ematrix,file=paste("NormalizedExpressionArray.customCDF.mas5.txt",sep=""),sep="\t", col.names=F, row.names=F,quote=FALSE)
   exprs <- as.data.frame(ematrix)
   rownames(exprs) <- exprs[,1]
