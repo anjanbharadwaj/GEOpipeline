@@ -29,14 +29,14 @@ fetchData <- function(accession, output_dir){
   setwd(output_dir)
   gse <- suppressMessages(getGEO(paste("GSE",accession,sep=""), GSEMatrix = TRUE))
   message("Connected to GSE. Attempting to map the GPL number to the microarray platform.")
-  finalData <- map_accession_to_platform(gse, accession)
+  finalData <- map_accession_to_platform(gse, accession, output_dir)
   return(finalData)
 
   unlink(paste(output_dir,"/",id,sep=""), recursive = T)
 
 }
 
-map_accession_to_platform <- function(data, accession_id){
+map_accession_to_platform <- function(data, accession_id, output_dir){
   total <- list()
   for(i in 1:length(data)){
     platform_id<-data[[i]]@experimentData@other[["platform_id"]]
@@ -60,13 +60,13 @@ map_accession_to_platform <- function(data, accession_id){
       message(paste("Platform title not found from the GPL number:", platform_id[i]))
       platform <- "temporary"
     }
-    val <- map_platform_to_cdf(data, platform, accession_id, platform_id[i])
+    val <- map_platform_to_cdf(data, platform, accession_id, platform_id[i], output_dir)
     total <- append(total, val)
   }
   return(total)
 }
 
-map_platform_to_cdf <- function(data, platform, accession_id, platform_id){
+map_platform_to_cdf <- function(data, platform, accession_id, platform_id, output_dir){
   tryCatch({
     if(length(data)>1){
 
@@ -125,13 +125,13 @@ map_platform_to_cdf <- function(data, platform, accession_id, platform_id){
     files <- getGEOSuppFiles(paste("GSE",accession_id,sep=""))
     wd <- paste(getwd(),"/GSE",accession_id,sep="")
     setwd(wd)
-    return(runCdfCode(data, wd,accession_id,cdf_library, platform_id))
+    return(runCdfCode(data, wd,accession_id,cdf_library, platform_id, output_dir))
   }
   )
 }
 
 
-runCdfCode <- function(data, wd,accession,cdfname, platform_id){
+runCdfCode <- function(data, wd,accession,cdfname, platform_id, output_dir){
   message("Unzipping TAR file into individual CEL files...")
   untar(paste("GSE",accession,"_RAW.tar",sep=""), list = FALSE, exdir = paste(wd,"/GSE",accession,"_EXTRACTED",sep=""), extras = NULL, verbose = FALSE, restore_times =  TRUE, support_old_tars = Sys.getenv("R_SUPPORT_OLD_TARS", FALSE), tar = Sys.getenv("TAR"))
   cel_files <- untar(paste("GSE",accession,"_RAW.tar",sep=""), list = TRUE, exdir = paste(wd,"/GSE",accession,"_EXTRACTED",sep=""), extras = NULL, verbose = FALSE, restore_times =  TRUE, support_old_tars = Sys.getenv("R_SUPPORT_OLD_TARS", FALSE), tar = Sys.getenv("TAR"))
@@ -157,21 +157,21 @@ runCdfCode <- function(data, wd,accession,cdfname, platform_id){
       message("No CEL Files found!")
       return("")
     } else{
-      return(transform_data(cdfname, accession, data, platform_id, cels_in_dir))
+      return(transform_data(cdfname, accession, data, platform_id, cels_in_dir, output_dir))
     }
   } else{
     if(length(cels_in_dir)==0){
       message("No CEL Files found!")
       return("")
     } else{
-    return(transform_data("NOCDF", accession, data, platform_id, cels_in_dir))
+    return(transform_data("NOCDF", accession, data, platform_id, cels_in_dir, output_dir))
     }
   }
 }
 
 
 
-transform_data <- function(cdfname, accession, gse, platform_id, filenamesV1){
+transform_data <- function(cdfname, accession, gse, platform_id, filenamesV1, output_dir){
 
   #install.packages("devtools")
   #library(devtools)
@@ -219,8 +219,8 @@ transform_data <- function(cdfname, accession, gse, platform_id, filenamesV1){
   ematrix <- ematrix[which(ematrix[,1] != "NA"),] #remove NAs
   ematrix <- ematrix[order(ematrix[,1]),] #sort by gene name
   ematrix <- rbind(cols, ematrix)
-  dir.create(paste("/Users/anjanbharadwaj/GEOpipeline/GSE",accession,"_",platform_id,sep=""))
-  setwd(paste("/Users/anjanbharadwaj/GEOpipeline/GSE",accession,"_",platform_id,sep=""))
+  dir.create(paste(output_dir,"/",accession,"_",platform_id,sep=""))
+  setwd(aste(output_dir,"/",accession,"_",platform_id,sep=""))
   write.table(ematrix,file=paste("NormalizedExpressionArray.customCDF.mas5.txt",sep=""),sep="\t", col.names=F, row.names=F,quote=FALSE)
   exprs <- as.data.frame(ematrix)
   rownames(exprs) <- exprs[,1]
